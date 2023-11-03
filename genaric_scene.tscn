@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnc87kwp4tt0s"]
+[gd_scene load_steps=4 format=3 uid="uid://bnc87kwp4tt0s"]
 
-[ext_resource type="PackedScene" uid="uid://c3j075uxskuro" path="res://Characters/fish.tscn" id="1_vi6we"]
+[ext_resource type="PackedScene" uid="uid://djjdqj5k3pn0g" path="res://Characters/Fishy.tscn" id="1_gsngm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpkdr"]
+size = Vector2(1200, 104)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2737c"]
 
 [node name="GenaricScene" type="Node2D"]
 
-[node name="Fish" parent="." instance=ExtResource("1_vi6we")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_gsngm")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-14, 285)
+shape = SubResource("RectangleShape2D_dpkdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-13, 283.5)
+scale = Vector2(1198, 101)
+texture = SubResource("CanvasTexture_2737c")
