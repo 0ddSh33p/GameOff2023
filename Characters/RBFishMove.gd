@@ -26,6 +26,10 @@ func _process(_delta):
 	if(fGrounded && !inWater):
 		apply_central_impulse(Vector2(0,flopHeight * randf_range(0.8,1.8)))
 		fGrounded = false
+	
+	if(grounded && input.y > 0.5):
+		apply_central_impulse(Vector2(0,jumpHeight))
+		grounded = false;
 
 
 func _physics_process(_delta):
@@ -34,9 +38,7 @@ func _physics_process(_delta):
 		grounded = true
 		fGrounded = true
 	else:
-		fGrounded=false
-	
-	
+		fGrounded=false	
 	
 	input = Vector2(
 		Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left"),
@@ -45,9 +47,7 @@ func _physics_process(_delta):
 	if(abs(linear_velocity.x) < speed):
 		linear_velocity.x += ramp * input.x
 		
-	if(grounded && input.y > 0.5):
-		apply_central_impulse(Vector2(0,jumpHeight))
-		grounded = false;
+
 	
 	if(inWater):
 		gravity_scale = 0.0;
