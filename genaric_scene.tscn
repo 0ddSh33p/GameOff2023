@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnc87kwp4tt0s"]
+[gd_scene load_steps=7 format=3 uid="uid://bnc87kwp4tt0s"]
 
 [ext_resource type="PackedScene" uid="uid://djjdqj5k3pn0g" path="res://Characters/Fishy.tscn" id="1_gsngm"]
 
@@ -8,7 +8,12 @@ size = Vector2(1185, 82)
 [sub_resource type="CanvasTexture" id="CanvasTexture_yn2k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ww0nm"]
-size = Vector2(50, 648)
+size = Vector2(43, 679)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lenbj"]
+size = Vector2(256, 203)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n6mre"]
 
 [node name="GenaricScene" type="Node2D"]
 
@@ -47,8 +52,8 @@ position = Vector2(-562, -19)
 shape = SubResource("RectangleShape2D_ww0nm")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(-574, -7.00003)
-scale = Vector2(71.9999, 692)
+position = Vector2(-576, -7.00003)
+scale = Vector2(68, 692)
 texture = SubResource("CanvasTexture_yn2k6")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -62,3 +67,15 @@ shape = SubResource("RectangleShape2D_ww0nm")
 position = Vector2(-561.5, -7.00003)
 scale = Vector2(46.9999, 692)
 texture = SubResource("CanvasTexture_yn2k6")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-292, -82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(60, 9.5)
+shape = SubResource("RectangleShape2D_lenbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D"]
+position = Vector2(-2.28882e-05, 0)
+scale = Vector2(254, 203)
+texture = SubResource("CanvasTexture_n6mre")
